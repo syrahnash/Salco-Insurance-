@@ -2,7 +2,8 @@
 
 int lcdAddress = 0x27;
 long duration;
-int distance;
+float distance;
+int distanceInt;
 
 LiquidCrystal_I2C *lcd;
 const int trigPin = 22;
@@ -17,6 +18,7 @@ void setup() {
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   Serial.begin(9600);
+  duration = -1;
   delay(3000);
 
 }
@@ -35,17 +37,17 @@ void loop() {
   delayMicroseconds(5);
   digitalWrite(trigPin, LOW);
   duration = pulseIn(echoPin, HIGH);
-  Serial.print("Duration: ");
-  Serial.println(duration);
   distance = duration * 0.034/2;
-  if (distance == -1){
+  if (duration == -1){
     lcd->print("Error");
   }
   else{
-    lcd->print(distance);
+    distanceInt = distance;
+    lcd->print(distanceInt);
   }
   Serial.print("Distance: ");
-  Serial.println(distance);
+  Serial.print(distance);
+  Serial.println(" cm");
   delay(500);    // Delay for half a second
 
 }
