@@ -1,10 +1,11 @@
-int pin = 6;
+#include <Servo.h>
+Servo myservo;
+void setup() {
+ myservo.attach(6);
 
-void setup (){
-  pinMode (pin, OUTPUT);
 }
 
-void loop (){
-  analogWrite (pin, 90);
+void loop() {
+myservo.write(110);
 
 }
