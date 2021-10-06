@@ -14,11 +14,13 @@ void setup()
 
 void loop(){
  //sleep.sleepDelay(2000);
+ //how long the servo motor will take to get to the next position
  Servo1.writeMicroseconds(1000);
+ //the angle that the servo motor is going to 
   Servo1.write(0);
+ //the time in microseconds the servo motor takes from one angle to the next
   delay(2000);
-  //Servo1.write(45);
- // delay(2000);
+  //the angle that the servo motor is going to 
   Servo1.write(90);
   delay(2000);
   //sleep.sleepDelay(2000);
